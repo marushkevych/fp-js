@@ -1,0 +1,56 @@
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript" >
+
+function sort(arr, sorted, callback){
+	sorted = sorted || [];
+	if(arr.length == 0){
+		callback(sorted);
+		return;
+	} 
+	// console.log(arr);
+
+
+	setTimeout(function () {
+		insert(sorted, arr.pop());
+		sort(arr, sorted, callback);
+	}, 0)
+
+	// console.log('exiting', arr)
+}
+
+function insert(arr, item){
+	for(var i = 0; i < arr.length; i++){
+		if(item < arr[i]){
+			arr.splice(i, 0, item);
+			return;
+		}
+	}
+
+	arr.push(item);
+}
+
+var arr = [];
+for(var i=10000; i>0; i--){
+	arr.push(i);
+}
+
+
+function doSort(){
+	sort(arr, [], function(sorted){
+		console.log("DONE",sorted)
+	});
+}
+
+function doSomething(){
+	console.log('something')
+}
+	</script>
+</head>
+<body>
+	<button onclick="doSort()">Sort</button>
+	<button onclick="doSomething()">Do something</button>
+
+</body>
+</html>
