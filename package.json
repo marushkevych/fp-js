@@ -1,0 +1,20 @@
+{
+  "name": "fp-js",
+  "version": "1.0.0",
+  "description": "functional programming course in js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compile": "babel src --watch --out-dir lib"
+  },
+  "author": "marushkevych",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.3.17"
+  },
+  "dependencies": {
+    "immutable": "^3.7.6",
+    "pattern-match": "^0.3.0",
+    "ramda": "^0.19.1"
+  }
+}
