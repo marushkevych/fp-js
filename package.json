@@ -5,12 +5,13 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "compile": "babel src --watch --out-dir lib"
+    "compile": "babel transducers --watch --out-dir lib"
   },
   "author": "marushkevych",
   "license": "ISC",
   "devDependencies": {
-    "babel-cli": "^6.3.17"
+    "babel-cli": "^6.3.17",
+    "babel-preset-stage-3": "^6.24.1"
   },
   "dependencies": {
     "immutable": "^3.7.6",

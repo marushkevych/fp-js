@@ -92,14 +92,13 @@ console.log(transduce(incrementAndFilterEven, push, [], [1,2,3,4,5]))
 // In ramda, the transducer is a function that accepts a transformer object and returns a transformer object
 // transformer object simply wraps reducing function (under "@@transducer/step" property)
 // here is how to convert transducer taking reducign funciton, to tranducer taking transformer object:
-const makeRamdaTransducer = transducer => nextTransformer => {
-  return Object.assign({}, nextTransformer, {
-    '@@transducer/step': transducer(nextTransformer['@@transducer/step'])
-  })
-};
+makeTransducer = stepFn => nextTransformer => ({
+  ...nextTransformer,
+  '@@transducer/step': stepFn(nextTransformer['@@transducer/step'])
+});
 
 console.log(
-  R.into([], makeRamdaTransducer(incrementAndFilterEven), [1,2,3,4,5])
+  R.into([], makeTransducer(incrementAndFilterEven), [1,2,3,4,5])
 )
 
 
